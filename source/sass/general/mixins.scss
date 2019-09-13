@@ -1,0 +1,109 @@
+@mixin desktop-only {
+  @media (min-width: $width-laptop) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $width-laptop - 1px) {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  @media (max-width: $width-laptop - 1px) and (min-width: $width-tablet) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $width-tablet - 1px) {
+    @content;
+  }
+}
+
+@mixin retina {
+  @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+    @content;
+  }
+}
+
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin columns($columns) {
+  grid-template-columns: repeat($columns, 1fr) [last];
+}
+
+@mixin grid($columns) {
+  display: grid;
+  grid-gap: 1rem;
+
+  @include columns($columns);
+}
+
+@mixin text-leading {
+  font-size: size(20px);
+  line-height: 1.4;
+}
+
+@mixin text-main {
+  font-size: size(20px);
+  line-height: 1.8;
+}
+
+@mixin text-small {
+  font-size: size(14px);
+  line-height: size(24px);
+}
+
+@mixin text-mobile {
+  font-size: size(14px);
+  line-height: size(20px);
+}
+
+@mixin text-button {
+  font-size: size(14px);
+  line-height: size(22px);
+}
+
+@mixin shadow($sizeX: size(8px), $sizeY: size(8px)) {
+  box-shadow: $sizeX $sizeY 0 rgba($color-black, 0.25);
+}
+
+@mixin link-transition($properties: background-position) {
+  transition-property: $properties;
+  transition-duration: 0.2s;
+  transition-timing-function: $grad-transition;
+}
+
+@mixin hover-area {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@mixin font-face($name, $filename, $weight, $style: normal) {
+  @font-face {
+    font-family: $name;
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+    src:
+      url("../fonts/" + $filename + ".woff2") format("woff2"),
+      url("../fonts/" + $filename + ".woff") format("woff");
+  }
+}

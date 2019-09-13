@@ -1,0 +1,81 @@
+.choices {
+  width: 100%;
+
+  @media (max-width: $mobile-width) {
+    min-height: 19px;
+  }
+}
+
+.choices[data-type*="select-one"]::after {
+  height: 8px;
+  width: 8px;
+  border: none;
+  right: 0;
+  margin-top: 0;
+  transform: translateY(-50%);
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9.1 5.5'%3E %3Cpath d='M4.5 3.1L7.3.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4L5.2 5.2c-.4.4-1 .4-1.4 0L.3 1.7C-.1 1.3-.1.7.3.3c.4-.4 1-.4 1.4 0l2.8 2.8z'/%3E %3C/svg%3E");
+}
+
+.choices[data-type*="select-one"].is-open::after {
+  margin-top: 0;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.choices__inner {
+  min-height: auto;
+  font-size: 15px;
+  vertical-align: bottom;
+  border: none;
+  background-color: transparent;
+
+  @media (max-width: $mobile-width) {
+    font-size: 16px;
+  }
+}
+
+.choices[data-type*="select-one"] .choices__inner {
+  padding: 0;
+}
+
+.choices__list--single {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+
+.choices__list--dropdown .choices__item--selectable::after {
+  display: none;
+}
+
+.choices__list--dropdown .choices__item--selectable {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.choices__item--flex {
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
+}
+
+.choices__item--flex span:nth-of-type(1) {
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 4px;
+  }
+}
+
+.choices__item--flex span:nth-of-type(2) {
+  opacity: 0.7;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    font-size: 12px;
+  }
+}

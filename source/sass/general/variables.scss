@@ -1,0 +1,36 @@
+$width-desktop: 1440px;
+$width-laptop:  1024px;
+$width-tablet:   768px;
+$width-min:      320px;
+
+$retina-dpi:    144dpi;
+$retina-dppx:  1.5dppx;
+
+$font-family: "Roboto", "Arial", sans-serif;
+$font-base: 20px;
+
+$color-black:        #000000;
+$color-white:        #ffffff;
+
+$color-grey:         #eeeeee;
+$color-grey-bg:      #e5e5e5;
+$color-grey-text:    #929292;
+$color-grey-table:   #dddddd;
+$color-grey-bullet:  #c4c4c4;
+
+$color-purple:       #631e76;
+$color-blue:         #0097e2;
+$color-blue-dark:    #147ac3;
+$color-blue-light:   #25b7ff;
+$color-green:        #8cbb33;
+$color-green-light:  #a2d93b;
+$color-yellow:       #fdee3a;
+$color-yellow-dark:  #ffdd2d;
+$color-yellow-light: #ffe769;
+$color-orange:       #fbb149;
+$color-red:          #e42110;
+$color-pink:         #e9438c;
+$color-pink-light:   #ffbcd9;
+
+
+$grad-transition: cubic-bezier(0, 0.5, 0.8, 1);
