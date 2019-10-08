@@ -1,0 +1,27 @@
+mixin rating(count)
+
+  if  Math.round(count) > 5
+    - var count = 5
+  if Math.round(count) < 0
+    - var count = count * -1
+  if Math.round(count) % Math.round(count) !== 0
+    - var count = 0
+
+  - var fullStars = Math.round(count)
+  - var stars = 5
+  - var countItem = count
+  - var item = 1
+
+  .rating
+    ul
+      if fullStars !== stars && fullStars <= stars
+        while item <= Math.round(fullStars)
+          li.rating__full=item++
+
+        while countItem < stars
+          li.rating__empty=countItem++
+      else
+        while item <= 5
+          li.rating__full=item++
+
+    b.rating__count #{count}

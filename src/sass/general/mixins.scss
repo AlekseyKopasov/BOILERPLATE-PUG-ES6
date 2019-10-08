@@ -1,0 +1,122 @@
+@mixin laptop {
+  @media (max-width: $width-desktop - 1px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $width-laptop - 1px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $width-tablet - 1px) {
+    @content;
+  }
+}
+
+@mixin retina {
+  @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+    @content;
+  }
+}
+
+@mixin font-face($name, $filename, $weight, $style: normal) {
+  @font-face {
+    font-family: $name;
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+    src:
+      url("../fonts/" + $filename + ".woff2") format("woff2"),
+      url("../fonts/" + $filename + ".woff") format("woff");
+  }
+}
+
+@mixin font($fontFamily, $size, $line-height, $weight) {
+  font-family: $fontFamily, "Arial", sans-serif;
+  font-size: $size + px;
+  line-height: $line-height + px;
+  font-weight: $weight;
+}
+
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+@mixin transition {
+  transition: all 0.3s;
+}
+
+@mixin link-blue {
+  @include transition;
+
+  position: relative;
+
+  &::after {
+    content: "";
+    height: 1px;
+    width: 0%;
+    background-color: #005db8;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    @include transition;
+  }
+
+  &:hover,
+  &:focus {
+    color: #005db8;
+
+    &::after {
+      width: 100%;
+    }
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+@mixin button-blue {
+  background: #3366ff;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  cursor: pointer;
+
+  @include transition;
+
+  &:hover,
+  &:focus {
+    background-color: #598bff;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 5px #edeff3;
+  }
+
+  &:active {
+    background-color: #274bdb;
+  }
+
+  &:disabled {
+    background-color: #8f9bb3;
+  }
+}
+
+@mixin field {
+  color: #8f9bb2;
+  border: 1px solid #e4e9f2;
+  border-radius: 4px;
+  background-color: #f7f9fc;
+}
